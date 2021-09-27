@@ -1,8 +1,22 @@
 server:
   port: 8761
+
 spring:
+  profiles:
+    active: dev
   application:
     name: msa-service-discovery
+  config:
+    import: "optional:configserver:http://127.0.0.1:8888"
+  cloud:
+    config:
+      name: ecommerce
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
 eureka:
   client:
     register-with-eureka: false
